@@ -82,6 +82,7 @@ const ProductDetailsPage = () => {
             <button
             //   onClick={handleAddToCart}
               className="px-6 py-3 bg-primary text-white rounded w-full uppercase mb-5 hover:bg-[#6ed388] transition"
+              onClick={() => alert(`You added ${product.name} to the cart!`)}
             >
               Add to Cart
             </button>

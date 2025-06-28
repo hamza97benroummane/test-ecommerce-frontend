@@ -1,16 +1,3 @@
-/* eslint-env node */
-// server/server.js
-
-import express from 'express';
-import cors from 'cors';
-
-const PORT = 3099; // fixed port, no environment variables
-
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-
 const products = [
   {
     id: 1,
@@ -114,15 +101,4 @@ const products = [
   },
 ];
 
-app.get('/api/products', (_req, res) => {
-  res.json({ success: true, products });
-});
-
-app.get('/api/products/:id', (req, res) => {
-  const id = +req.params.id;
-  const product = products.find((p) => p.id === id);
-  if (!product) return res.status(404).json({ success: false, message: 'Not found' });
-  res.json({ success: true, product });
-});
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+export default products;
