@@ -1,11 +1,9 @@
 // api/products/[id].js
-import products from '../../../data/products';
+import products from '../../../data/products.js';
 
-export default function handler(req, res) {
-  const {
-    query: { id },
-    method,
-  } = req;
+export default (req, res) => {
+  const { id } = req.query;
+  const method = req.method;
 
   if (method !== 'GET') {
     res.setHeader('Allow', ['GET']);
@@ -19,5 +17,4 @@ export default function handler(req, res) {
   }
 
   res.status(200).json({ success: true, product });
-}
-
+};
