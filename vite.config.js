@@ -13,11 +13,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
-  plugins: [react(), tailwindcss(), vite()],
+  plugins: [react()],
   server: {
-    port: 3000,               // your frontend port
     proxy: {
-      // Proxy all /api/* requests to http://localhost:3099
       '/api': {
         target: 'http://localhost:3099',
         changeOrigin: true,
